@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ورد سورة البقرة اليومي — ٥ أوراد</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #2e6f5e;
+      --primary-light: #e8f3ef;
+      --primary-medium: #bfe0d6;
+      --primary-dark: #1f4f42;
+      --primary-rgb: 46, 111, 94;
+      --bg-page: #f9f6f0;
+      --bg-card: #ffffff;
+      --bg-subtle: #f2ede3;
+      --text-main: #1f2421;
+      --text-muted: #646b67;
+      --border-color: #e4dccd;
+      --shadow-card: 0 8px 24px rgba(25, 30, 28, 0.05);
+      --gold-accent: #b88c3a;
+    }
+
+    html.dark {
+      --bg-page: #121413;
+      --bg-card: #1b1e1c;
+      --bg-subtle: #242926;
+      --text-main: #f0eee9;
+      --text-muted: #9da4a0;
+      --border-color: #2f3532;
+      --shadow-card: 0 10px 28px rgba(0, 0, 0, 0.35);
+      --primary-light: rgba(var(--primary-rgb), 0.22);
+      --primary-medium: rgba(var(--primary-rgb), 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Cairo', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-main);
+      line-height: 1.65;
+      transition: background-color 0.25s ease, color 0.25s ease;
+      padding-bottom: 3rem;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: inherit;
+    }
+
+    .top-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background-color: var(--bg-card);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    .header-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.28);
+    }
+
+    .brand-title-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    html.dark .brand-title { color: #e6f2ee; }
+
+    .save-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 1px solid var(--primary-medium);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    html.dark .save-badge { color: #ffffff; }
+
+    .brand-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tool-btn {
+      height: 38px;
+      padding: 0 0.75rem;
+      border-radius: 11px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: transform 0.15s ease, background-color 0.2s ease;
+    }
+
+    .tool-btn:hover {
+      background-color: var(--primary-light);
+      border-color: var(--primary-medium);
+    }
+
+    .tool-btn:active { transform: scale(0.96); }
+
+    .tool-btn svg,
+    .custom-color-row svg,
+    .bookmark-pin-box svg,
+    .streak-pill svg,
+    .bookmark-tag svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      vertical-align: middle;
+    }
+
+    .color-dot-preview {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+      display: inline-block;
+    }
+
+    .color-dropdown-wrapper { position: relative; }
+
+    .color-popover {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: calc(100% + 8px);
+      width: 270px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+      z-index: 100;
+    }
+
+    .color-popover.open { display: block; }
+
+    .popover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .preset-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background-color: var(--bg-subtle);
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-align: right;
+      transition: all 0.15s ease;
+    }
+
+    .preset-item.selected {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+      font-weight: 800;
+    }
+
+    .preset-swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 2px solid #ffffff;
+    }
+
+    .custom-color-row {
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .custom-color-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    input[type="color"] {
+      width: 38px;
+      height: 30px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: transparent;
+      cursor: pointer;
+      padding: 2px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 22px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .progress-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .progress-title {
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .progress-stats {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    html.dark .progress-stats { color: #a3d9c9; }
+
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background-color: var(--bg-subtle);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      margin-bottom: 1rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      border-radius: 999px;
+      transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .bookmark-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .bookmark-info {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .bookmark-pin-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .bookmark-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .bookmark-value {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .primary-btn {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 0.6rem 1.15rem;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 14px rgba(var(--primary-rgb), 0.25);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .primary-btn:hover { background-color: var(--primary-dark); }
+    .primary-btn:active { transform: scale(0.97); }
+
+    .wirds-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.6rem;
+    }
+
+    @media (max-width: 720px) {
+      .wirds-grid { grid-template-columns: repeat(2, 1fr); }
+      .wird-tab:last-child { grid-column: span 2; }
+    }
+
+    .wird-tab {
+      background-color: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      padding: 0.75rem 0.65rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .wird-tab:hover {
+      border-color: var(--primary-medium);
+      transform: translateY(-1px);
+    }
+
+    .wird-tab.active {
+      border-color: var(--primary);
+      background-color: var(--primary-light);
+      box-shadow: 0 6px 16px rgba(var(--primary-rgb), 0.14);
+    }
+
+    .wird-tab-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
+    .wird-check {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .wird-range {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .reader-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .reader-wird-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    html.dark .reader-wird-title { color: #bfe0d6; }
+
+    .reader-hint {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .bismillah-banner {
+      text-align: center;
+      font-family: 'Amiri Quran', 'Amiri', serif;
+      font-size: 1.75rem;
+      color: var(--primary);
+      padding: 0.85rem;
+      margin-bottom: 1.25rem;
+      background-color: var(--primary-light);
+      border-radius: 16px;
+      border: 1px solid var(--primary-medium);
+    }
+
+    html.dark .bismillah-banner { color: #e6f2ee; }
+
+    .quran-container {
+      font-family: 'Amiri Quran', 'Amiri', 'Traditional Arabic', serif;
+      font-size: 25px;
+      line-height: 2.45;
+      text-align: justify;
+      word-spacing: 2px;
+      color: var(--text-main);
+    }
+
+    .verse-item {
+      display: inline;
+      padding: 0.15rem 0.35rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .verse-item:hover { background-color: var(--primary-light); }
+
+    .verse-item.bookmarked {
+      background-color: var(--primary-light);
+      box-shadow: inset 0 0 0 2px var(--primary);
+    }
+
+    .bookmark-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-family: 'Cairo', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 800;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 0.1rem 0.5rem;
+      border-radius: 6px;
+      margin-left: 0.35rem;
+      vertical-align: middle;
+    }
+
+    .bookmark-tag svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .ayah-end-badge {
+      font-family: 'Amiri', serif;
+      color: var(--gold-accent);
+      font-weight: 700;
+      margin: 0 0.3rem;
+      font-size: 0.92em;
+      user-select: none;
+    }
+
+    .reader-footer {
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .complete-wird-btn {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.85rem 1.25rem;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      background-color: var(--primary);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      box-shadow: 0 6px 18px rgba(var(--primary-rgb), 0.28);
+      transition: all 0.2s ease;
+    }
+
+    .complete-wird-btn.done {
+      background-color: var(--primary-light);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      box-shadow: none;
+    }
+
+    html.dark .complete-wird-btn.done { color: #ffffff; }
+
+    .nav-wird-btn {
+      padding: 0.85rem 1rem;
+      border-radius: 14px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .nav-wird-btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .streak-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      background-color: var(--primary-light);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    html.dark .streak-pill { color: #ffffff; }
+
+    .month-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .month-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .month-title {
+      font-size: 0.98rem;
+      font-weight: 800;
+      min-width: 120px;
+      text-align: center;
+    }
+
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.4rem;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .calendar-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.4rem;
+    }
+
+    .cal-day {
+      aspect-ratio: 1 / 1;
+      max-height: 52px;
+      border-radius: 12px;
+      background-color: var(--bg-subtle);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .cal-day.empty {
+      background: transparent;
+      border: none;
+    }
+
+    .cal-day.today { border: 2px solid var(--primary); }
+
+    .cal-day.partial {
+      background-color: var(--primary-light);
+      border-color: var(--primary-medium);
+      color: var(--primary);
+    }
+
+    html.dark .cal-day.partial { color: #ffffff; }
+
+    .cal-day.full {
+      background-color: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+
+    .cal-dots {
+      font-size: 0.65rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .calendar-legend {
+      margin-top: 1rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .legend-box {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .state-box {
+      text-align: center;
+      padding: 2.5rem 1rem;
+      color: var(--text-muted);
+    }
+
+    .toast-notification {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background-color: #1f2421;
+      color: #ffffff;
+      padding: 0.7rem 1.25rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+      z-index: 200;
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      max-width: 92vw;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toast-notification.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    .social-link {
+  height: 38px;
+  padding: 0 0.75rem;
+  border-radius: 11px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.2s ease;
+}
+
+.social-link:hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary-medium);
+  transform: translateY(-1px);
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.instagram-link:hover {
+  color: #c13584;
+}
+
+.whatsapp-link:hover {
+  color: #25a36a;
+}
+/* =================================
+   DARK MODE — COLOR FIX
+================================= */
+
+html.dark {
+  --primary-light: rgba(var(--primary-rgb), 0.20) !important;
+  --primary-medium: rgba(var(--primary-rgb), 0.45) !important;
+
+  --bg-page: #121413;
+  --bg-card: #1b1e1c;
+  --bg-subtle: #242926;
+
+  --text-main: #f0eee9;
+  --text-muted: #aab2ad;
+  --border-color: #343c37;
+}
+
+/* الأزرار العلوية */
+html.dark .tool-btn {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .tool-btn:hover,
+html.dark .tool-btn:focus,
+html.dark .tool-btn:active {
+  background-color: var(--primary-light);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* قائمة اختيار الألوان */
+html.dark .color-popover,
+html.dark .preset-item {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .preset-item.selected {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* أسماء الأوراد */
+html.dark .wird-tab {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .wird-tab.active {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+html.dark .wird-tab.active .wird-range {
+  color: #d4e8df;
+}
+
+/* عنوان الورد */
+html.dark .reader-wird-title {
+  color: #c4e6d8;
+}
+
+/* بسم الله الرحمن الرحيم */
+html.dark .bismillah-banner {
+  background-color: var(--primary-light);
+  border-color: var(--primary-medium);
+  color: #e8f4ed;
+}
+
+/* الآيات المحددة وموضع التوقف */
+html.dark .verse-item:hover,
+html.dark .verse-item.bookmarked {
+  background-color: var(--primary-light);
+}
+
+html.dark .verse-item.bookmarked {
+  box-shadow: inset 0 0 0 2px var(--primary);
+}
+
+/* زر إتمام الورد بعد تحديده */
+html.dark .complete-wird-btn.done {
+  background-color: var(--primary-light);
+  color: #ffffff;
+  border-color: var(--primary);
+}
+
+/* سلسلة الالتزام */
+html.dark .streak-pill {
+  background-color: var(--primary-light);
+  color: #e8f4ed;
+  border: 1px solid var(--primary-medium);
+}
+
+/* التقويم */
+html.dark .cal-day {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .cal-day.today {
+  border: 2px solid var(--primary);
+  outline: 1px solid var(--primary-medium);
+  outline-offset: 1px;
+}
+
+html.dark .cal-day.partial {
+  background-color: var(--primary-light);
+  border-color: var(--primary-medium);
+  color: #ffffff;
+}
+
+html.dark .cal-day.full {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+html.dark .cal-day.empty {
+  background: transparent;
+  border: none;
+}
+
+/* أزرار التنقل بين الأشهر */
+html.dark .month-btn,
+html.dark .nav-wird-btn {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .month-btn:hover,
+html.dark .nav-wird-btn:not(:disabled):hover {
+  background-color: var(--primary-light);
+  border-color: var(--primary);
+  color: #ffffff;
+}
+
+/* ألوان دليل التقويم */
+html.dark .legend-box {
+  border-color: var(--border-color);
+}
+
+/* الروابط الاجتماعية */
+html.dark .social-link {
+  background-color: var(--bg-subtle);
+  color: var(--text-main);
+  border-color: var(--border-color);
+}
+
+html.dark .instagram-link:hover {
+  color: #f2a6cb;
+  background-color: rgba(193, 53, 132, 0.16);
+}
+
+html.dark .whatsapp-link:hover {
+  color: #8de0ad;
+  background-color: rgba(37, 163, 106, 0.16);
+}
+
+/* جميع العناصر عند الضغط أو التركيز */
+html.dark button:focus-visible,
+html.dark a:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* إشعار الحفظ */
+html.dark .toast-notification {
+  background-color: #e8eee9;
+  color: #17211b;
+}
+  </style>
+</head>
+
+<body>
+
+  <header class="top-header">
+    <div class="header-inner">
+      <div class="brand-box">
+        <div class="brand-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+          </svg>
+        </div>
+
+        <div>
+          <div class="brand-title-row">
+           <h1 class="brand-title">سياج النور</h1>
+            <span id="saveStatusBadge" class="save-badge">تم الحفظ ✓</span>
+          </div>
+          <p id="todayDateLabel" class="brand-subtitle">مقسّمة على ٥ أوراد يومية</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+
+        <div class="color-dropdown-wrapper">
+          <button type="button" id="colorToggleBtn" class="tool-btn" title="تغيير لون الموقع">
+            <span id="activeColorDot" class="color-dot-preview"></span>
+            <span>اللون</span>
+          </button>
+
+          <div id="colorPopover" class="color-popover">
+            <div class="popover-header">
+              <span>اختر لونك المفضل</span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">يُحفظ تلقائياً</span>
+            </div>
+
+            <div id="presetColorsGrid" class="preset-grid"></div>
+
+            <div class="custom-color-row">
+              <label for="customColorInput" class="custom-color-label">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 3a9 9 0 1 0 0 18h1.5a2.5 2.5 0 0 0 1.8-4.2c-.6-.6-.2-1.8.7-1.8H18a3 3 0 0 0 3-3c0-5-4-9-9-9Z"/>
+                  <circle cx="7.5" cy="10" r="1"/>
+                  <circle cx="11" cy="6.5" r="1"/>
+                  <circle cx="16" cy="8" r="1"/>
+                </svg>
+                لون مخصص حر:
+              </label>
+              <input type="color" id="customColorInput" value="#2e6f5e" />
+            </div>
+          </div>
+        </div>
+
+        <button type="button" id="fontDecBtn" class="tool-btn" title="تصغير خط الآيات">A-</button>
+        <button type="button" id="fontIncBtn" class="tool-btn" title="تكبير خط الآيات">A+</button>
+
+        <button type="button" id="darkModeBtn" class="tool-btn" title="تبديل الوضع الليلي" aria-label="تبديل الوضع الليلي">
+          <svg id="darkModeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/>
+          </svg>
+        </button>
+
+        <button type="button" id="scrollCalBtn" class="tool-btn" title="عرض التقويم الشهري">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M16 3v4M8 3v4M3 10h18"/>
+            <path d="M8 14h.01M12 14h.01M16 14h.01M8 17h.01M12 17h.01"/>
+          </svg>
+          التقويم
+        </button>
+        <a
+  class="social-link instagram-link"
+  href="https://www.instagram.com/f21.xo?knvt=MXFpcXhnZHZ6bnlubg%3D%3D&utm_source=qr"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="حساب إنستغرام"
+  title="تابعيني على إنستغرام"
+>
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    <rect x="3" y="3" width="18" height="18" rx="5"/>
+    <circle cx="12" cy="12" r="4"/>
+    <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor"/>
+  </svg>
+  Instagram
+</a>
+
+<a
+  class="social-link whatsapp-link"
+  href="https://whatsapp.com/channel/0029VbBX2es2kNFvXaklaO3I"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="قناة  على واتساب"
+  title="انضمي إلى قناة الواتساب"
+>
+  <svg viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="1.8"
+       stroke-linecap="round" stroke-linejoin="round"
+       aria-hidden="true">
+    <path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.7A8.5 8.5 0 1 1 20.5 11.5Z"/>
+    <path d="M8.5 8.5c.3-.7.6-.7 1-.7h.4c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.5.6c-.2.2-.2.4 0 .7.5.9 1.2 1.6 2.1 2.1.3.2.5.2.7 0l.7-.8c.2-.2.4-.2.6-.1l1.6.8c.3.1.4.3.4.5 0 .4-.2 1.1-.7 1.5-.5.4-1.2.6-2 .4-1.1-.3-2.4-.9-3.7-2.2-1.2-1.2-2-2.6-2.2-3.6-.2-.8.1-1.5.5-1.9Z"/>
+  </svg>
+  WhatsApp
+</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="card">
+      <div class="progress-top">
+        <span class="progress-title">إنجاز أوراد اليوم</span>
+        <span id="progressText" class="progress-stats">٠ من ٥ أوراد (٠٪)</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progressBarFill" class="progress-fill"></div>
+      </div>
+
+      <div class="bookmark-bar">
+        <div class="bookmark-info">
+          <div class="bookmark-pin-box" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+          </div>
+
+          <div>
+            <span class="bookmark-label">موضع التوقف المحفوظ في المتصفح:</span>
+            <span id="bookmarkSummaryText" class="bookmark-value">الآية ١ (الورد الأول)</span>
+          </div>
+        </div>
+
+        <button type="button" id="jumpBookmarkBtn" class="primary-btn">الانتقال لموضع التوقف</button>
+      </div>
+    </section>
+
+    <nav id="wirdsNavGrid" class="wirds-grid" aria-label="أوراد سورة البقرة الخمسة"></nav>
+
+    <section class="card">
+      <div class="reader-header">
+        <div>
+          <h2 id="activeWirdHeading" class="reader-wird-title">الورد الأول (الآيات ١ – ٦٦)</h2>
+          <p class="reader-hint">اضغط على أي آية لحفظ موضع توقفك تلقائياً</p>
+        </div>
+      </div>
+
+      <div id="bismillahBox" class="bismillah-banner">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+      </div>
+
+      <div id="loadingBox" class="state-box">
+        <p style="font-weight: 700; margin-bottom: 0.4rem;">جاري تحميل آيات سورة البقرة...</p>
+        <p style="font-size: 0.85rem;">يتم حفظ النص في متصفحك ليعمل بدون إنترنت في المرات القادمة</p>
+      </div>
+
+      <div id="errorBox" class="state-box" style="display: none;">
+        <p style="font-weight: 700; color: #c53030; margin-bottom: 0.75rem;">تعذر تحميل نص السورة، تأكد من اتصالك بالإنترنت</p>
+        <button type="button" id="retryFetchBtn" class="primary-btn">إعادة المحاولة</button>
+      </div>
+
+      <div id="versesContainer" class="quran-container"></div>
+
+      <div id="readerFooter" class="reader-footer" style="display: none;">
+        <button type="button" id="prevWirdBtn" class="nav-wird-btn">→ الورد السابق</button>
+        <button type="button" id="completeWirdBtn" class="complete-wird-btn">تم إتمام هذا الورد ✓</button>
+        <button type="button" id="nextWirdBtn" class="nav-wird-btn">الورد التالي ←</button>
+      </div>
+    </section>
+
+    <section id="calendarSection" class="card">
+      <div class="calendar-header">
+        <div>
+          <h2 class="progress-title">سجل المتابعة الشهري</h2>
+          <p class="reader-hint">تتبع التزامك اليومي بأوراد سورة البقرة</p>
+        </div>
+
+        <div class="streak-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22c4.4 0 7-3.1 7-7 0-2.7-1.4-4.8-3.7-6.7.1 2-1 3.2-2.2 3.8.4-3.7-1.4-7.2-4.8-9.1.5 3.5-.4 5.3-2.1 7.2C4.8 11.8 5 13.3 5 15c0 4 2.8 7 7 7Z"/>
+          </svg>
+          <span id="streakLabel">سلسلة الالتزام: ٠ أيام</span>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+        <div class="month-nav">
+          <button type="button" id="prevMonthBtn" class="month-btn" title="الشهر السابق">‹</button>
+          <span id="calendarMonthLabel" class="month-title">نوفمبر ٢٠٢٦</span>
+          <button type="button" id="nextMonthBtn" class="month-btn" title="الشهر التالي">›</button>
+        </div>
+
+        <span id="monthlyFullDaysLabel" style="font-size: 0.82rem; font-weight: 700; color: var(--text-muted);">
+          أيام الإتمام الكامل: ٠ يوم
+        </span>
+      </div>
+
+      <div class="calendar-weekdays">
+        <div>الأحد</div>
+        <div>الإثنين</div>
+        <div>الثلاثاء</div>
+        <div>الأربعاء</div>
+        <div>الخميس</div>
+        <div>الجمعة</div>
+        <div>السبت</div>
+      </div>
+
+      <div id="calendarDaysGrid" class="calendar-days"></div>
+
+      <div class="calendar-legend">
+        <div class="legend-item">
+          <span class="legend-box" style="background-color: var(--primary);"></span>
+          <span>إتمام كامل (٥/٥ أوراد)</span>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-box" style="background-color: var(--primary-light); border: 1px solid var(--primary-medium);"></span>
+          <span>إنجاز جزئي (١–٤ أوراد)</span>
+        </div>
+
+        <div class="legend-item">
+          <span class="legend-box" style="background-color: var(--bg-subtle); border: 2px solid var(--primary);"></span>
+          <span>اليوم الحالي</span>
+        </div>
+      </div>
+    </section>
+ 
+  </main>
+
+  <div id="toastBox" class="toast-notification"></div>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var WIRDS = [
+        { id: 1, title: 'الورد الأول', start: 1, end: 66, rangeText: 'الآيات ١ – ٦٦' },
+        { id: 2, title: 'الورد الثاني', start: 67, end: 126, rangeText: 'الآيات ٦٧ – ١٢٦' },
+        { id: 3, title: 'الورد الثالث', start: 127, end: 182, rangeText: 'الآيات ١٢٧ – ١٨٢' },
+        { id: 4, title: 'الورد الرابع', start: 183, end: 234, rangeText: 'الآيات ١٨٣ – ٢٣٤' },
+        { id: 5, title: 'الورد الخامس', start: 235, end: 286, rangeText: 'الآيات ٢٣٥ – ٢٨٦' }
+      ];
+
+      var PRESET_THEMES = [
+        { name: 'أخضر زمردي', hex: '#2e6f5e' },
+        { name: 'وردي هادئ', hex: '#c45b7b' },
+        { name: 'أزرق سماوي', hex: '#2c6aa0' },
+        { name: 'بنفسجي ناعم', hex: '#7052b5' },
+        { name: 'ذهبي دافئ', hex: '#b0792b' },
+        { name: 'فيروزي مريح', hex: '#1e7a84' }
+      ];
+
+      var STORAGE_SURAH_KEY = 'baqarah_surah_text_v1';
+      var STORAGE_STATE_KEY = 'baqarah_user_state_v3';
+
+      var ARABIC_MONTHS = [
+        'يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو',
+        'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'
+      ];
+
+      var ICONS = {
+        moon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/></svg>',
+        sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>',
+        pin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>'
+      };
+
+      var state = {
+        ayahs: [],
+        activeWird: 1,
+        bookmarkAyah: 1,
+        hasSavedBookmark: false,
+        fontSize: 25,
+        darkMode: false,
+        themeColor: '#2e6f5e',
+        history: {},
+        calYear: new Date().getFullYear(),
+        calMonth: new Date().getMonth()
+      };
+
+      function toArabicDigits(num) {
+        var digits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+        return String(num).replace(/\d/g, function (d) {
+          return digits[Number(d)];
+        });
+      }
+
+      function getDateKey(dateObj) {
+        var d = dateObj || new Date();
+        var year = d.getFullYear();
+        var month = String(d.getMonth() + 1).padStart(2, '0');
+        var day = String(d.getDate()).padStart(2, '0');
+        return year + '-' + month + '-' + day;
+      }
+
+      function getWirdByAyah(ayahNum) {
+        for (var i = 0; i < WIRDS.length; i++) {
+          if (ayahNum >= WIRDS[i].start && ayahNum <= WIRDS[i].end) {
+            return WIRDS[i];
+          }
+        }
+        return WIRDS[0];
+      }
+
+      function getWirdById(id) {
+        for (var i = 0; i < WIRDS.length; i++) {
+          if (WIRDS[i].id === id) return WIRDS[i];
+        }
+        return WIRDS[0];
+      }
+
+      function hexToRgb(hex) {
+        var clean = String(hex || '#2e6f5e').replace('#', '');
+        if (clean.length === 3) {
+          clean = clean[0] + clean[0] + clean[1] + clean[1] + clean[2] + clean[2];
+        }
+        var num = parseInt(clean, 16);
+        if (isNaN(num)) return { r: 46, g: 111, b: 94 };
+        return {
+          r: (num >> 16) & 255,
+          g: (num >> 8) & 255,
+          b: num & 255
+        };
+      }
+
+      function mixColors(c1, c2, weight) {
+        return {
+          r: Math.round(c1.r * (1 - weight) + c2.r * weight),
+          g: Math.round(c1.g * (1 - weight) + c2.g * weight),
+          b: Math.round(c1.b * (1 - weight) + c2.b * weight)
+        };
+      }
+
+      function rgbToHex(rgb) {
+        function toHex(n) {
+          return Math.max(0, Math.min(255, n)).toString(16).padStart(2, '0');
+        }
+        return '#' + toHex(rgb.r) + toHex(rgb.g) + toHex(rgb.b);
+      }
+     function applyThemeColor(hex) {
+  if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+    hex = '#2e6f5e';
+  }
+
+  var base = hexToRgb(hex);
+  var white = { r: 255, g: 255, b: 255 };
+  var black = { r: 15, g: 18, b: 17 };
+
+  var lightHex = rgbToHex(mixColors(base, white, 0.88));
+  var mediumHex = rgbToHex(mixColors(base, white, 0.65));
+  var darkHex = rgbToHex(mixColors(base, black, 0.24));
+
+  var root = document.documentElement;
+
+  root.style.setProperty('--primary', hex);
+  root.style.setProperty('--primary-light', lightHex);
+  root.style.setProperty('--primary-medium', mediumHex);
+  root.style.setProperty('--primary-dark', darkHex);
+  root.style.setProperty(
+    '--primary-rgb',
+    base.r + ', ' + base.g + ', ' + base.b
+  );
+
+  var dot = document.getElementById('activeColorDot');
+  if (dot) dot.style.backgroundColor = hex;
+
+  var picker = document.getElementById('customColorInput');
+
+  if (picker && picker.value.toLowerCase() !== hex.toLowerCase()) {
+    picker.value = hex;
+  }
+}
+      
+      var toastTimeout = null;
+
+      function showToast(message) {
+        var box = document.getElementById('toastBox');
+        if (!box) return;
+        box.textContent = message;
+        box.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(function () {
+          box.classList.remove('show');
+        }, 2800);
+      }
+
+      function loadSavedState() {
+        try {
+          var raw = localStorage.getItem(STORAGE_STATE_KEY);
+          if (!raw) return;
+
+          var data = JSON.parse(raw);
+
+          if (data && typeof data === 'object') {
+            var bAyah = Number(data.bookmarkAyah);
+
+            if (bAyah >= 1 && bAyah <= 286) {
+              state.bookmarkAyah = bAyah;
+              state.hasSavedBookmark = true;
+            }
+
+            var aWird = Number(data.activeWird);
+
+            if (aWird >= 1 && aWird <= 5) {
+              state.activeWird = aWird;
+            } else {
+              state.activeWird = getWirdByAyah(state.bookmarkAyah).id;
+            }
+
+            var fSize = Number(data.fontSize);
+            if (fSize >= 18 && fSize <= 42) state.fontSize = fSize;
+
+            state.darkMode = Boolean(data.darkMode);
+
+            if (typeof data.themeColor === 'string') {
+              state.themeColor = data.themeColor;
+            }
+
+            if (data.history && typeof data.history === 'object') {
+              state.history = data.history;
+            }
+          }
+        } catch (err) {
+          console.error('Failed to load state:', err);
+        }
+      }
+
+      function saveState() {
+        try {
+          var payload = {
+            bookmarkAyah: state.bookmarkAyah,
+            activeWird: state.activeWird,
+            fontSize: state.fontSize,
+            darkMode: state.darkMode,
+            themeColor: state.themeColor,
+            history: state.history
+          };
+
+          localStorage.setItem(STORAGE_STATE_KEY, JSON.stringify(payload));
+
+          var badge = document.getElementById('saveStatusBadge');
+          if (badge) badge.textContent = 'تم الحفظ ✓';
+
+        } catch (err) {
+          console.error('Failed to save state:', err);
+          showToast('تعذر الحفظ في المتصفح');
+        }
+      }
+
+      function getTodayCompletedList() {
+        var key = getDateKey(new Date());
+        var list = state.history[key];
+        return Array.isArray(list) ? list : [];
+      }
+
+      function loadSurahText(forceNetwork) {
+        var loadingBox = document.getElementById('loadingBox');
+        var errorBox = document.getElementById('errorBox');
+        var versesContainer = document.getElementById('versesContainer');
+        var readerFooter = document.getElementById('readerFooter');
+
+        loadingBox.style.display = 'block';
+        errorBox.style.display = 'none';
+        versesContainer.innerHTML = '';
+        readerFooter.style.display = 'none';
+
+        if (!forceNetwork) {
+          try {
+            var cached = localStorage.getItem(STORAGE_SURAH_KEY);
+
+            if (cached) {
+              var parsed = JSON.parse(cached);
+
+              if (Array.isArray(parsed) && parsed.length === 286) {
+                state.ayahs = parsed;
+                loadingBox.style.display = 'none';
+                readerFooter.style.display = 'flex';
+
+                renderVerses(
+                  state.hasSavedBookmark && state.bookmarkAyah > 1
+                    ? state.bookmarkAyah
+                    : null
+                );
+                return;
+              }
+            }
+          } catch (e) {
+            // متابعة التحميل من الشبكة
+          }
+        }
+
+        fetch('https://api.alquran.cloud/v1/surah/2/quran-uthmani')
+          .then(function (response) {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+          })
+          .then(function (json) {
+            if (!json || !json.data || !Array.isArray(json.data.ayahs) || json.data.ayahs.length !== 286) {
+              throw new Error('Invalid Quran data');
+            }
+
+            state.ayahs = json.data.ayahs.map(function (item, index) {
+              var cleanText = item.text || '';
+
+              if (index === 0) {
+                cleanText = cleanText
+                  .replace(/^بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ\s*/, '')
+                  .replace(/^بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\s*/, '');
+              }
+
+              return {
+                number: item.numberInSurah,
+                text: cleanText.trim()
+              };
+            });
+
+            try {
+              localStorage.setItem(STORAGE_SURAH_KEY, JSON.stringify(state.ayahs));
+            } catch (storageErr) {
+              // تجاهل امتلاء الذاكرة إن وجد
+            }
+
+            loadingBox.style.display = 'none';
+            readerFooter.style.display = 'flex';
+
+            renderVerses(
+              state.hasSavedBookmark && state.bookmarkAyah > 1
+                ? state.bookmarkAyah
+                : null
+            );
+          })
+          .catch(function (err) {
+            console.error('Error fetching Surah Al-Baqarah:', err);
+            loadingBox.style.display = 'none';
+            errorBox.style.display = 'block';
+          });
+      }
+
+      function renderAll() {
+        applyVisualPreferences();
+        renderPresetColors();
+        renderDateHeader();
+        renderProgressAndBookmark();
+        renderWirdTabs();
+        renderCalendar();
+
+        if (state.ayahs.length === 286) renderVerses(null);
+      }
+
+      function applyVisualPreferences() {
+        applyThemeColor(state.themeColor);
+
+        var darkBtn = document.getElementById('darkModeBtn');
+
+        if (state.darkMode) {
+          document.documentElement.classList.add('dark');
+          darkBtn.innerHTML = ICONS.sun;
+        } else {
+          document.documentElement.classList.remove('dark');
+          darkBtn.innerHTML = ICONS.moon;
+        }
+
+        var versesEl = document.getElementById('versesContainer');
+
+        if (versesEl) {
+          versesEl.style.fontSize = state.fontSize + 'px';
+        }
+      }
+
+      function renderDateHeader() {
+        var label = document.getElementById('todayDateLabel');
+        if (!label) return;
+
+        try {
+          var formatted = new Date().toLocaleDateString('ar-EG', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          });
+
+          label.textContent = formatted;
+        } catch (e) {
+          label.textContent = 'مقسّمة على ٥ أوراد يومية';
+        }
+      }
+
+      function renderPresetColors() {
+        var grid = document.getElementById('presetColorsGrid');
+        if (!grid) return;
+
+        grid.innerHTML = '';
+
+        for (var i = 0; i < PRESET_THEMES.length; i++) {
+          (function (theme) {
+            var btn = document.createElement('button');
+
+            btn.type = 'button';
+            btn.className = 'preset-item' +
+              (state.themeColor.toLowerCase() === theme.hex.toLowerCase() ? ' selected' : '');
+
+            var swatch = document.createElement('span');
+            swatch.className = 'preset-swatch';
+            swatch.style.backgroundColor = theme.hex;
+
+            var nameSpan = document.createElement('span');
+            nameSpan.textContent = theme.name;
+
+            btn.appendChild(swatch);
+            btn.appendChild(nameSpan);
+
+            btn.addEventListener('click', function () {
+              state.themeColor = theme.hex;
+              applyThemeColor(theme.hex);
+              renderPresetColors();
+              saveState();
+              showToast('تم اعتماد اللون: ' + theme.name);
+            });
+
+            grid.appendChild(btn);
+          })(PRESET_THEMES[i]);
+        }
+      }
+
+      function renderProgressAndBookmark() {
+        var completedToday = getTodayCompletedList();
+        var count = completedToday.length;
+        var percent = Math.round((count / 5) * 100);
+
+        var progressText = document.getElementById('progressText');
+        var progressBar = document.getElementById('progressBarFill');
+
+        if (progressText) {
+          progressText.textContent =
+            toArabicDigits(count) + ' من ٥ أوراد (' + toArabicDigits(percent) + '٪)';
+        }
+
+        if (progressBar) progressBar.style.width = percent + '%';
+
+        var bookmarkWird = getWirdByAyah(state.bookmarkAyah);
+        var bookmarkSummary = document.getElementById('bookmarkSummaryText');
+
+        if (bookmarkSummary) {
+          bookmarkSummary.textContent =
+            'الآية ' + toArabicDigits(state.bookmarkAyah) + ' (' + bookmarkWird.title + ')';
+        }
+      }
+
+      function renderWirdTabs() {
+        var navGrid = document.getElementById('wirdsNavGrid');
+        if (!navGrid) return;
+
+        navGrid.innerHTML = '';
+
+        var completedToday = getTodayCompletedList();
+
+        for (var i = 0; i < WIRDS.length; i++) {
+          (function (wird) {
+            var isCompleted = completedToday.indexOf(wird.id) !== -1;
+            var isActive = state.activeWird === wird.id;
+
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'wird-tab' + (isActive ? ' active' : '');
+
+            var headerDiv = document.createElement('div');
+            headerDiv.className = 'wird-tab-header';
+
+            var titleSpan = document.createElement('span');
+            titleSpan.textContent = wird.title;
+            headerDiv.appendChild(titleSpan);
+
+            if (isCompleted) {
+              var checkSpan = document.createElement('span');
+              checkSpan.className = 'wird-check';
+              checkSpan.textContent = '✓';
+              headerDiv.appendChild(checkSpan);
+            }
+
+            var rangeDiv = document.createElement('div');
+            rangeDiv.className = 'wird-range';
+            rangeDiv.textContent = wird.rangeText;
+
+            btn.appendChild(headerDiv);
+            btn.appendChild(rangeDiv);
+
+            btn.addEventListener('click', function () {
+              state.activeWird = wird.id;
+              saveState();
+              renderWirdTabs();
+              renderVerses(wird.start);
+            });
+
+            navGrid.appendChild(btn);
+          })(WIRDS[i]);
+        }
+      }
+
+      function renderVerses(scrollToAyahNumber) {
+        var container = document.getElementById('versesContainer');
+        var heading = document.getElementById('activeWirdHeading');
+        var bismillahBox = document.getElementById('bismillahBox');
+        var completeBtn = document.getElementById('completeWirdBtn');
+        var prevBtn = document.getElementById('prevWirdBtn');
+        var nextBtn = document.getElementById('nextWirdBtn');
+
+        if (!container || state.ayahs.length !== 286) return;
+
+        var currentWird = getWirdById(state.activeWird);
+
+        heading.textContent = currentWird.title + ' (' + currentWird.rangeText + ')';
+        bismillahBox.style.display = currentWird.id === 1 ? 'block' : 'none';
+
+        var completedToday = getTodayCompletedList();
+        var isWirdDone = completedToday.indexOf(currentWird.id) !== -1;
+
+        if (isWirdDone) {
+          completeBtn.className = 'complete-wird-btn done';
+          completeBtn.textContent =
+            'تم إنجاز ' + currentWird.title + ' اليوم ✓ (اضغط للإلغاء)';
+        } else {
+          completeBtn.className = 'complete-wird-btn';
+          completeBtn.textContent = 'تم إتمام ' + currentWird.title + ' ✓';
+        }
+
+        prevBtn.disabled = currentWird.id === 1;
+        nextBtn.disabled = currentWird.id === 5;
+
+        container.innerHTML = '';
+
+        var fragment = document.createDocumentFragment();
+
+        for (var i = currentWird.start - 1; i <= currentWird.end - 1; i++) {
+          (function (ayah) {
+            var isBookmarked = state.bookmarkAyah === ayah.number;
+
+            var span = document.createElement('span');
+            span.id = 'ayah-' + ayah.number;
+            span.className = 'verse-item' + (isBookmarked ? ' bookmarked' : '');
+            span.title = 'اضغط لحفظ موضع التوقف عند الآية ' + toArabicDigits(ayah.number);
+
+            if (isBookmarked) {
+              var badge = document.createElement('span');
+              badge.className = 'bookmark-tag';
+              badge.innerHTML = ICONS.pin + ' وصلت هنا';
+              span.appendChild(badge);
+            }
+
+            var textNode = document.createTextNode(ayah.text + ' ');
+            span.appendChild(textNode);
+
+            var numBadge = document.createElement('span');
+            numBadge.className = 'ayah-end-badge';
+            numBadge.textContent = '﴿' + toArabicDigits(ayah.number) + '﴾';
+            span.appendChild(numBadge);
+
+            span.appendChild(document.createTextNode(' '));
+
+            span.addEventListener('click', function () {
+              state.bookmarkAyah = ayah.number;
+              state.hasSavedBookmark = true;
+              state.activeWird = getWirdByAyah(ayah.number).id;
+
+              saveState();
+              renderProgressAndBookmark();
+              renderWirdTabs();
+              renderVerses(null);
+
+              showToast('تم حفظ موضع التوقف عند الآية ' + toArabicDigits(ayah.number));
+            });
+
+            fragment.appendChild(span);
+          })(state.ayahs[i]);
+        }
+
+        container.appendChild(fragment);
+
+        if (scrollToAyahNumber) {
+          setTimeout(function () {
+            var targetEl = document.getElementById('ayah-' + scrollToAyahNumber);
+
+            if (targetEl) {
+              targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 80);
+        }
+      }
+
+      function calculateStreak() {
+        var streak = 0;
+        var cursor = new Date();
+        var todayKey = getDateKey(cursor);
+
+        var todayDone =
+          Array.isArray(state.history[todayKey]) &&
+          state.history[todayKey].length > 0;
+
+        if (!todayDone) cursor.setDate(cursor.getDate() - 1);
+
+        while (true) {
+          var key = getDateKey(cursor);
+          var list = state.history[key];
+
+          if (Array.isArray(list) && list.length > 0) {
+            streak++;
+            cursor.setDate(cursor.getDate() - 1);
+          } else {
+            break;
+          }
+        }
+
+        return streak;
+      }
+
+      function renderCalendar() {
+        var monthLabel = document.getElementById('calendarMonthLabel');
+        var daysGrid = document.getElementById('calendarDaysGrid');
+        var streakLabel = document.getElementById('streakLabel');
+        var fullDaysLabel = document.getElementById('monthlyFullDaysLabel');
+
+        if (!monthLabel || !daysGrid) return;
+
+        monthLabel.textContent =
+          ARABIC_MONTHS[state.calMonth] + ' ' + toArabicDigits(state.calYear);
+
+        streakLabel.textContent =
+          'سلسلة الالتزام: ' + toArabicDigits(calculateStreak()) + ' أيام';
+
+        daysGrid.innerHTML = '';
+
+        var firstDayOfWeek = new Date(state.calYear, state.calMonth, 1).getDay();
+        var daysInMonth = new Date(state.calYear, state.calMonth + 1, 0).getDate();
+        var todayKey = getDateKey(new Date());
+        var fullCompletedDaysCount = 0;
+
+        for (var blank = 0; blank < firstDayOfWeek; blank++) {
+          var emptyCell = document.createElement('div');
+          emptyCell.className = 'cal-day empty';
+          daysGrid.appendChild(emptyCell);
+        }
+
+        for (var day = 1; day <= daysInMonth; day++) {
+          var dateStr =
+            state.calYear + '-' +
+            String(state.calMonth + 1).padStart(2, '0') + '-' +
+            String(day).padStart(2, '0');
+
+          var completedList =
+            Array.isArray(state.history[dateStr]) ? state.history[dateStr] : [];
+
+          var count = completedList.length;
+
+          if (count === 5) fullCompletedDaysCount++;
+
+          var cell = document.createElement('div');
+          var classes = ['cal-day'];
+
+          if (dateStr === todayKey) classes.push('today');
+
+          if (count === 5) {
+            classes.push('full');
+          } else if (count > 0) {
+            classes.push('partial');
+          }
+
+          cell.className = classes.join(' ');
+          cell.title =
+            dateStr + ' — أُنجز ' + toArabicDigits(count) + ' من ٥ أوراد';
+
+          var numDiv = document.createElement('div');
+          numDiv.textContent = toArabicDigits(day);
+          cell.appendChild(numDiv);
+
+          if (count > 0) {
+            var dotsDiv = document.createElement('div');
+            dotsDiv.className = 'cal-dots';
+            dotsDiv.textContent = count === 5 ? '✓' : toArabicDigits(count) + '/٥';
+            cell.appendChild(dotsDiv);
+          }
+
+          daysGrid.appendChild(cell);
+        }
+
+        if (fullDaysLabel) {
+          fullDaysLabel.textContent =
+            'أيام الإتمام الكامل: ' + toArabicDigits(fullCompletedDaysCount) + ' يوم';
+        }
+      }
+
+      function bindEvents() {
+        var colorToggleBtn = document.getElementById('colorToggleBtn');
+        var colorPopover = document.getElementById('colorPopover');
+        var customColorInput = document.getElementById('customColorInput');
+
+        colorToggleBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          colorPopover.classList.toggle('open');
+        });
+
+        colorPopover.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+
+        document.addEventListener('click', function () {
+          colorPopover.classList.remove('open');
+        });
+
+        customColorInput.addEventListener('input', function (e) {
+          state.themeColor = e.target.value;
+          applyThemeColor(state.themeColor);
+          renderPresetColors();
+          saveState();
+        });
+
+        document.getElementById('fontDecBtn').addEventListener('click', function () {
+          if (state.fontSize > 18) {
+            state.fontSize -= 2;
+            applyVisualPreferences();
+            saveState();
+          }
+        });
+
+        document.getElementById('fontIncBtn').addEventListener('click', function () {
+          if (state.fontSize < 42) {
+            state.fontSize += 2;
+            applyVisualPreferences();
+            saveState();
+          }
+        });
+
+        document.getElementById('darkModeBtn').addEventListener('click', function () {
+          state.darkMode = !state.darkMode;
+          applyVisualPreferences();
+          saveState();
+        });
+
+        document.getElementById('scrollCalBtn').addEventListener('click', function () {
+          var calEl = document.getElementById('calendarSection');
+
+          if (calEl) {
+            calEl.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+
+        document.getElementById('jumpBookmarkBtn').addEventListener('click', function () {
+          var targetWird = getWirdByAyah(state.bookmarkAyah);
+
+          state.activeWird = targetWird.id;
+
+          saveState();
+          renderWirdTabs();
+          renderVerses(state.bookmarkAyah);
+
+          showToast('تم الانتقال إلى الآية ' + toArabicDigits(state.bookmarkAyah));
+        });
+
+        document.getElementById('completeWirdBtn').addEventListener('click', function () {
+          var todayKey = getDateKey(new Date());
+          var currentList = getTodayCompletedList().slice();
+          var idx = currentList.indexOf(state.activeWird);
+
+          if (idx === -1) {
+            currentList.push(state.activeWird);
+            currentList.sort();
+
+            state.history[todayKey] = currentList;
+
+            saveState();
+            renderProgressAndBookmark();
+            renderWirdTabs();
+            renderVerses(null);
+            renderCalendar();
+
+            if (currentList.length === 5) {
+              showToast('ما شاء الله! أتممت أوراد سورة البقرة الخمسة بالكامل اليوم');
+            } else {
+              showToast(
+                'تقبل الله! تم تسجيل إتمام ' +
+                getWirdById(state.activeWird).title + ' ✓'
+              );
+            }
+
+          } else {
+            currentList.splice(idx, 1);
+
+            if (currentList.length === 0) {
+              delete state.history[todayKey];
+            } else {
+              state.history[todayKey] = currentList;
+            }
+
+            saveState();
+            renderProgressAndBookmark();
+            renderWirdTabs();
+            renderVerses(null);
+            renderCalendar();
+
+            showToast('تم إلغاء تحديد ' + getWirdById(state.activeWird).title);
+          }
+        });
+
+        document.getElementById('prevWirdBtn').addEventListener('click', function () {
+          if (state.activeWird > 1) {
+            state.activeWird--;
+            saveState();
+            renderWirdTabs();
+            renderVerses(getWirdById(state.activeWird).start);
+          }
+        });
+
+        document.getElementById('nextWirdBtn').addEventListener('click', function () {
+          if (state.activeWird < 5) {
+            state.activeWird++;
+            saveState();
+            renderWirdTabs();
+            renderVerses(getWirdById(state.activeWird).start);
+          }
+        });
+
+        document.getElementById('prevMonthBtn').addEventListener('click', function () {
+          state.calMonth--;
+
+          if (state.calMonth < 0) {
+            state.calMonth = 11;
+            state.calYear--;
+          }
+
+          renderCalendar();
+        });
+
+        document.getElementById('nextMonthBtn').addEventListener('click', function () {
+          state.calMonth++;
+
+          if (state.calMonth > 11) {
+            state.calMonth = 0;
+            state.calYear++;
+          }
+
+          renderCalendar();
+        });
+
+        document.getElementById('retryFetchBtn').addEventListener('click', function () {
+          loadSurahText(true);
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        loadSavedState();
+        bindEvents();
+        renderAll();
+        loadSurahText(false);
+      });
+
+    })();
+  </script>
+</body>
+</html>
